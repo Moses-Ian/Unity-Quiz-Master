@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5d83dd72652d5804caeade603331d055
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Delight Mother
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 75d69bdc4f4228c46ba50ceda7a2b9b8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

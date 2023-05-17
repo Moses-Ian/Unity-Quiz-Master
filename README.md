@@ -1,2 +1,2 @@
-# Unity-Snow-Boarder
-A 2D physics game about snowboarding
+# Unity-Quiz-Master
+A 2D quiz game
