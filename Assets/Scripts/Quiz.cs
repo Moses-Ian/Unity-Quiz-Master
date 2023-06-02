@@ -10,8 +10,6 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(question.GetQuestion());
-        Debug.Log(questionText.text);
         questionText.text = question.GetQuestion();
     }
 
