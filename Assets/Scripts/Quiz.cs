@@ -8,7 +8,8 @@ public class Quiz : MonoBehaviour
 {
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] QuestionSO question;
+    [SerializeField] List<QuestionSO> questions;
+    QuestionSO currentQuestion;
 
     [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
@@ -24,7 +25,6 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        GetNextQuestion();
     }
 
     void Update()
@@ -44,9 +44,20 @@ public class Quiz : MonoBehaviour
 
     void GetNextQuestion()
     {
-        SetButtonState(true);
-        SetDefaultButtonSprites();
-        DisplayQuestion();
+        if (questions.Count > 0)
+        {
+            SetButtonState(true);
+            SetDefaultButtonSprites();
+            GetRandomQuestion();
+            DisplayQuestion();
+        }
+    }
+
+    void GetRandomQuestion()
+    {
+        int index = Random.Range(0, questions.Count);
+        currentQuestion = questions[index];
+        questions.Remove(currentQuestion);
     }
 
     void SetDefaultButtonSprites()
@@ -57,6 +68,7 @@ public class Quiz : MonoBehaviour
 
     public void OnAnswerSelected(int index)
     {
+        Debug.Log(index);
         DisplayAnswer(index);
         timer.CancelTimer();
     }
@@ -68,25 +80,27 @@ public class Quiz : MonoBehaviour
         Image buttonImage;
         buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
         buttonImage.sprite = correctAnswerSprite;
-        
-        if (index == question.GetCorrectAnswerIndex())
+
+        Debug.Log(currentQuestion.GetCorrectAnswerIndex());
+
+        if (index == currentQuestion.GetCorrectAnswerIndex())
         {
             questionText.text = "Correct!";
         }
         else
         {
-            correctAnswerIndex = question.GetCorrectAnswerIndex();
-            string correctAnswer = question.GetAnswer(correctAnswerIndex);
+            correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
+            string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry, the correct answer was\n" + correctAnswer;
         }
     }
 
     private void DisplayQuestion()
     {
-        questionText.text = question.GetQuestion();
+        questionText.text = currentQuestion.GetQuestion();
 
         for (int i = 0; i < answerButtons.Length; i++)
-            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = question.GetAnswer(i);
+            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.GetAnswer(i);
     }
 
     void SetButtonState(bool state)

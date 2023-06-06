@@ -84,3 +84,9 @@ MonoBehaviour:
 
 
 '
+  answers:
+  - a thing
+  - a mystery
+  - an enigma
+  - a riddle
+  correctAnswerIndex: 0
