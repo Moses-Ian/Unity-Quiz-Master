@@ -83,3 +83,9 @@ MonoBehaviour:
 
 
 '
+  answers:
+  - a story
+  - a lorrie
+  - too gory
+  - i'm dory
+  correctAnswerIndex: 0

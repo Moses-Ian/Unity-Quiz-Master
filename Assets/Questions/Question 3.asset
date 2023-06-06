@@ -84,3 +84,9 @@ MonoBehaviour:
 
 
 '
+  answers:
+  - a hat
+  - a gnat
+  - a pat
+  - a brat
+  correctAnswerIndex: 0

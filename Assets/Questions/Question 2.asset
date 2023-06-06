@@ -83,3 +83,9 @@ MonoBehaviour:
 
 
 '
+  answers:
+  - a cat
+  - 'a bat '
+  - a rat
+  - a brat
+  correctAnswerIndex: 0

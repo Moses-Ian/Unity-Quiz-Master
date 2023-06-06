@@ -84,3 +84,9 @@ MonoBehaviour:
 
 
 '
+  answers:
+  - why so glum?
+  - beat a drum?
+  - tell a fable?
+  - blee blo bable
+  correctAnswerIndex: 0
